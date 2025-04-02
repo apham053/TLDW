@@ -3,25 +3,18 @@
 
 {% block body %}
     <form action="/" method="post">
-        <input autocomplete="off" autofocus name="URL" placeholder="YouTube URL" type="text">
+        <input autocomplete="off" autofocus name="URL" placeholder="Youtube URL" type="text">
         <button type="submit">Submit</button>
     </form>
-
     <p>{{ message }}</p>
 
     {% if image_path %}
-        <h2>Thumbnail:</h2>
-        <img src="{{ image_path }}" alt="YouTube Thumbnail">
+        <img src="{{ url_for('serveImage', filename='thumbnail.png') }}" alt="Thumbnail">
     {% endif %}
 
     {% if summary %}
-        <h2>Summary:</h2>
+        <h2>Summary</h2>
         <p>{{ summary }}</p>
     {% endif %}
-
-    {% if section_details %}
-        <h2>Section-wise Summary:</h2>
-        <p>{{ section_details | safe }}</p>
-    {% endif %}
-
 {% endblock %}
+
